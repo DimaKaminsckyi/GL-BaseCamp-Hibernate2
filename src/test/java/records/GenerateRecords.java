@@ -37,7 +37,9 @@ public class GenerateRecords{
         Transaction transaction = session.getTransaction();
         try{
         transaction.begin();
+        session.createSQLQuery("ALTER TABLE department ALTER COLUMN id RESTART WITH 1").executeUpdate();
         session.createQuery("DELETE FROM Workers").executeUpdate();
+        session.createSQLQuery("ALTER TABLE workers ALTER COLUMN id RESTART WITH 1").executeUpdate();
         session.createQuery("DELETE FROM Department").executeUpdate();
 
         transaction.commit();
