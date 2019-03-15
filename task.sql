@@ -1,3 +1,5 @@
+DROP DATABASE task;
+
 CREATE DATABASE IF NOT EXISTS  task;
 USE task;
 

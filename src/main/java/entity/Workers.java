@@ -26,9 +26,26 @@ public class Workers {
     public Workers() {
     }
 
-    public Workers(int age, Availability availability, String fullName) {
+    public Workers(int age, Availability availability, String fullName , Department department) {
         this.age = age;
         this.availability = availability;
+        this.fullName = fullName;
+        this.department = department;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setAvailability(Availability availability) {
+        this.availability = availability;
+    }
+
+    public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
@@ -39,9 +56,11 @@ public class Workers {
     @Override
     public String toString() {
         return "Workers{" +
-                "age=" + age +
+                "id=" + id +
+                ", age=" + age +
                 ", availability=" + availability +
                 ", fullName='" + fullName + '\'' +
+                ", department=" + department +
                 '}';
     }
 }

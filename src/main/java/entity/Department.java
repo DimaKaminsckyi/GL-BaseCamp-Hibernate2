@@ -17,7 +17,7 @@ public class Department {
     @Column(name = "status")
     private Boolean status;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     private List<Workers> workers;
 
     public Department() {
@@ -28,6 +28,18 @@ public class Department {
         this.status = status;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
     public void setWorkers(List<Workers> workers) {
         this.workers = workers;
     }
@@ -35,8 +47,8 @@ public class Department {
     @Override
     public String toString() {
         return "Department{" +
-                "name='" + name + '\'' +
-                ", status=" + status +
-                '}';
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", status=" + status ;
     }
 }

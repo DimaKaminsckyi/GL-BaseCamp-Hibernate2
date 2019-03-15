@@ -3,12 +3,13 @@ package util;
 import entity.Department;
 import entity.Workers;
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.util.Properties;
 
-public class SessionFactoryUtil {
+public class SessionUtil {
 
     private static final SessionFactory concreteSessionFactory;
     static {
@@ -19,7 +20,7 @@ public class SessionFactoryUtil {
             prop.setProperty("hibernate.connection.username", "root");
             prop.setProperty("hibernate.connection.password", "123123qwe");
             prop.setProperty("dialect", "org.hibernate.dialect.MySQLDialect");
-            prop.setProperty("hibernate.hbm2ddl.auto", "update");
+            prop.setProperty("hibernate.hbm2ddl.auto", "create");
 
             Configuration config = new Configuration();
 
@@ -34,8 +35,7 @@ public class SessionFactoryUtil {
         }
     }
 
-
-    public static SessionFactory getSession() throws HibernateException {
-        return concreteSessionFactory;
+    public static Session getSession() throws HibernateException {
+        return concreteSessionFactory.openSession();
     }
 }
